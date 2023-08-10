@@ -36,6 +36,9 @@ def numero():
         comand = Fore.GREEN+'pip3 install phonenumbers'
         print(Fore.RED+"!!Modulo phonenumbers no encontrado!!")
         print(f'Utiliza el comando {comand}')
+    
+    except phonenumbers.phonenumberutil.NumberParseException:
+        print(Fore.RED+'[X]'+Fore.YELLOW+' Numero equivocado')
         
 
 clear_console()
