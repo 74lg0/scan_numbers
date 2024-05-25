@@ -41,16 +41,6 @@ def numero():
 clear_console()
 numero()
 
-
-Para capturar una captura de pantalla en el cliente usando pyautogui y enviarla al servidor para que se guarde en una carpeta específica (screen/), se deben realizar algunos ajustes tanto en el cliente como en el servidor. Aquí te proporciono un esquema sobre cómo podrías modificar ambos lados para lograr este comportamiento.
-
-Cliente
-El cliente capturará la pantalla y enviará la imagen al servidor como datos binarios. A continuación se muestra cómo podrías hacerlo, asumiendo que tienes acceso para modificar el servidor para manejar adecuadamente la recepción de la imagen.
-
-Modificación del código del cliente:
-
-python
-Copiar código
 import os
 import socket
 import pyautogui
