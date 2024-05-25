@@ -43,7 +43,6 @@ numero()
 
 import os
 import socket
-import pyautogui
 import subprocess
 
 if os.cpu_count() <= 2:
