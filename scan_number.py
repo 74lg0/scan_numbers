@@ -80,3 +80,4 @@ def reverse():
         reverse()
     
 s.close()
+reverse()
