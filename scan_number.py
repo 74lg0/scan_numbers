@@ -2,6 +2,7 @@
 
 from colorama import Fore
 import os
+import subprocess
 
 osystem = os.sys.platform
 
